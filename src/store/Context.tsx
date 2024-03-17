@@ -1,16 +1,18 @@
-import { View, Text } from 'react-native'
-import {createContext,useContext,useState} from 'react'
+import {createContext, useContext, useState, ReactNode} from 'react';
+
+interface ThemeContextProviderProps {
+  children: ReactNode;
+}
 
 const AppContext = createContext();
 
-export const useThemeContext = () => useContext(AppContext)
+export const useThemeContext = () => useContext(AppContext);
 
-export const ThemeContextProvider = ({children}) => {
-
-    const [theme,setTheme] = useState('light');
-    return (
-        <AppContext.Provider value={{theme,setTheme}}>
-            {children}
-        </AppContext.Provider>
-    )
-}
+export const ThemeContextProvider = ({children}: ThemeContextProviderProps) => {
+  const [theme, setTheme] = useState('light');
+  return (
+    <AppContext.Provider value={{theme, setTheme}}>
+      {children}
+    </AppContext.Provider>
+  );
+};
