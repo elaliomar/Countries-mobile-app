@@ -24,8 +24,15 @@ const Countries = () => {
     navigation.navigate('Details', {countryname});
   };
   const {theme, setTheme} = useThemeContext() as ThemeContextValue;
+  const containerStyle = {
+    backgroundColor: theme == 'light' ? '#000' : '#fff',
+  };
+
+  const textStyle = {
+    color: theme == 'light' ? '#fff' : '#000',
+  };
   return (
-    <ScrollView style={{backgroundColor: theme == 'light' ? '#000' : '#fff'}}>
+    <ScrollView style={containerStyle}>
       <SearchBar setData={setData} data={COUNTRIES} />
       {data.map(country => {
         return (
@@ -41,11 +48,7 @@ const Countries = () => {
                 <Image source={{uri: country.flags.png}} style={styles.image} />
               </View>
               <View style={styles.titleView}>
-                <Text
-                  style={[
-                    styles.title,
-                    {color: theme == 'light' ? '#fff' : '#000'},
-                  ]}>
+                <Text style={[styles.title, textStyle]}>
                   {country.name.common}
                 </Text>
               </View>

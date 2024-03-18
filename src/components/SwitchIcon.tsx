@@ -17,24 +17,24 @@ const SwitchIcon = () => {
       setIsSwitchOn(false);
     }
   };
+
+  const containerStyle = {
+    backgroundColor: theme == 'light' ? '#000' : '#fff',
+  };
+
+  const textStyle = {
+    color: theme == 'light' ? '#fff' : '#000',
+  };
   return (
-    <View
-      style={[
-        styles.container,
-        {backgroundColor: theme == 'light' ? '#000' : '#fff'},
-      ]}>
-      <Text style={[styles.text, {color: theme == 'light' ? '#fff' : '#000'}]}>
-        Dark
-      </Text>
+    <View style={[styles.container, containerStyle]}>
+      <Text style={[styles.text, textStyle]}>Dark</Text>
       <Switch
         key={theme}
         value={isSwitchOn}
         onValueChange={handlChange}
         trackColor={{false: '#900', true: '#lightblue'}}
       />
-      <Text style={[styles.text, {color: theme == 'light' ? '#fff' : '#000'}]}>
-        Light
-      </Text>
+      <Text style={[styles.text, textStyle]}>Light</Text>
     </View>
   );
 };

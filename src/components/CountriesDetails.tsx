@@ -17,21 +17,21 @@ const CountriesDetails = () => {
   const handlPress = () => {
     navigation.push('Tab');
   };
+
+  const containerStyle = {
+    backgroundColor: theme == 'light' ? '#000' : '#fff',
+  };
+
+  const textStyle = {
+    color: theme == 'light' ? '#fff' : '#000',
+  };
+
   return (
     <>
       {selectedCountry.map((c, index) => {
         return (
-          <View
-            key={c.tld}
-            style={[
-              styles.viewContainer,
-              {backgroundColor: theme == 'light' ? '#000' : '#fff'},
-            ]}>
-            <Text
-              style={[
-                styles.textCapital,
-                {color: theme == 'light' ? '#fff' : '#000'},
-              ]}>
+          <View key={c.tld} style={[styles.viewContainer, containerStyle]}>
+            <Text style={[styles.textCapital, textStyle]}>
               Capital: {c.capital}
             </Text>
             <Text
